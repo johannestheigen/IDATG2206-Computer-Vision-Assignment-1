@@ -3,7 +3,7 @@
 % the assignment.
 %
 % It is based on the approach shown in: https://www.youtube.com/watch?v=Ht37gT4hoy0
-% The LLM model GPT 5 was ued order to gain a broader understanding of 
+% The LLM model GPT 5 was used in order to gain a broader understanding of 
 % how the filter works and to properly set the filter up.
 clc;
 clear all;
