@@ -3,7 +3,7 @@
 %
 % The implementation follows the approach demonstrated in:
 % https://www.youtube.com/watch?v=Ht37gT4hoy0
-% I do not claim ownership of the original source code; credit is given to
+% I do not claim ownership of the original source code. All credit is given to
 % this source for explaining the filtering concepts and serving as the
 % primary reference for the method.
 %
