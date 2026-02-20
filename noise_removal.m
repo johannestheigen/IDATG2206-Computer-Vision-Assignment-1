@@ -1,10 +1,14 @@
-% Matlab program for Butterworth Notch Reject Filter (BNRF) used to remove
-% the a lot of the noise in the image 'Image2_PNoise.png' of provided in
-% the assignment.
+% Matlab program for a Butterworth Notch Reject Filter (BNRF) used to remove
+% periodic noise in the assignment image 'Image2_PNoise.png'.
 %
-% It is based on the approach shown in: https://www.youtube.com/watch?v=Ht37gT4hoy0
-% The LLM model GPT 5 was used in order to gain a broader understanding of 
-% how the filter works and to properly set the filter up.
+% The implementation follows the approach demonstrated in:
+% https://www.youtube.com/watch?v=Ht37gT4hoy0
+% I do not claim ownership of the original source code; credit is given to
+% this source for explaining the filtering concepts and serving as the
+% primary reference for the method.
+%
+% An LLM (GPT-5) was used to assist in constructing the filter and to gain
+% a broader understanding of how it works.
 clc;
 clear all;
 close all;
@@ -52,20 +56,19 @@ for k = 1:length(u0)
     H = H .* Hk;
 end
 
-% Apply filter in frequency domain
-H_high = H .* A_shift;
-H_high_shift = ifftshift(H_high);
-H_high_image = ifft2(H_high_shift);
+% Apply filter in frequency domain and return to spatial domain
+G = H .* A_shift;
+G_ishift = ifftshift(G);
+g = ifft2(G_ishift);
 
-% Display filter and results
 subplot(2,3,4);
 imshow(H,[]);
-title('Gaussian Notch Reject Filter');
+title('Butterworth Notch Reject Filter');
 
 subplot(2,3,5);
 mesh(H);
-title('Surface plot GNRF');
+title('Surface plot BNRF');
 
 subplot(2,3,6);
-imshow(abs(H_high_image),[]);
-title('Gaussian Notch Filtered image');
+imshow(mat2gray(real(g)));
+title('Butterworth notch filtered image');
