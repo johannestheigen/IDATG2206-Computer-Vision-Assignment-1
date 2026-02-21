@@ -1,4 +1,4 @@
-% Matlab program for a Butterworth Notch Reject Filter (BNRF) used to remove
+% MATLAB program implementing a Butterworth Notch Reject Filter (BNRF) used to remove
 % periodic noise in the assignment image 'Image2_PNoise.png'.
 %
 % The implementation follows the approach demonstrated in:
@@ -13,7 +13,7 @@ clc;
 clear all;
 close all;
 
-a = imread('Image2_PNoise.png'); % Read the image 
+a = imread('Image1_PNoise.png'); % Read the image 
 a = rgb2gray(a);  % Convert the image to gray scale
 a = im2double(a); % Convert the range of colors from 0-255 to 0-1
 [m,n]=size(a); 
