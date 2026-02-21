@@ -12,12 +12,10 @@ while hasFrame(v) % Iterates through every frame contained within the .mp4 file
 Agray = double(im2gray(rgbFrame)); % Converts the current frame to grayscale
 
 % 3x3 matrix that represents an image kernel used to apply different effects
-K = [0 -1 0; 
-     -1  5 -1; 
-     0  -1 0];
-
-A_padded = padarray(Agray, [1 1], 0, 'both'); % Pads the current frame with zeros
-
+K = [0 -1 0;
+     -1 4 -1;
+     0 -1 0];
+A_padded = padarray(Agray, [1 1], 'replicate', 'both'); % Pads the current frame with zeros
 K_flipped = rot90(K,2); % Rotates the kernel
 
 [i, j] = size (A_padded); % Retrieves the size of the padded matrix
@@ -32,7 +30,7 @@ for row = 2:(i-1)
     end
 end
 
-imshow(C, []) % Displays the current processed frame
+imshow(abs(C), []); % Displays the current processed frame
 drawnow % Forces MATLAB to update the figure immediately.
 
 end
