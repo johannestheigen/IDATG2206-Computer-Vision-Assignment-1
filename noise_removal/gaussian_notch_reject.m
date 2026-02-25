@@ -1,5 +1,5 @@
 % MATLAB program implementing a Gaussian Notch Reject Filter (GNRF)
-% to remove periodic stripe noise from the assignment image 'Image1_PNoise.png'.
+% to remove periodic stripe noise.
 %
 % The implementation follows the approach demonstrated in:
 % https://www.youtube.com/watch?v=Ht37gT4hoy0
@@ -13,7 +13,7 @@ clc;
 clear all;
 close all;
 
-a = imread('Image1_PNoise.png'); % Read the image 
+a = imread('Image1_PNoise.png'); % Read the image (change to 'Image2_PNoise.png) to process the second image.
 a = rgb2gray(a);  % Convert the image to gray scale
 a = im2double(a); % Convert the range of colors from 0-255 to 0-1
 [m,n]=size(a); 
@@ -37,8 +37,11 @@ title('Frequency domain image');
 sigma = 6;  % Notch width:
 
 % Notch centers (offsets from the center of the spectrum).
+% Change Notch Values to for the second image
+% [14 28 42]; 
+% [16 32 48];
 u0 = [0 0];
-v0 = [17 18];
+v0 = [17 18]; 
 
 % Build Gaussian Notch Reject Filter
 H = ones(m,n);
